@@ -1681,8 +1681,6 @@ do
 		return slider
 	end
 	
-	pcall(function()
-	
 	function section:addDropdown(title, list, callback)
 		local dropdown = utility:Create("Frame", {
 			Name = "Dropdown",
@@ -1808,8 +1806,6 @@ do
 		
 		return dropdown
 	end
-	
-	end)
 	
 	-- class functions
 	
