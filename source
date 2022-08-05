@@ -1681,6 +1681,8 @@ do
 		return slider
 	end
 	
+	pcall(function()
+	
 	function section:addDropdown(title, list, callback)
 		local dropdown = utility:Create("Frame", {
 			Name = "Dropdown",
@@ -1774,8 +1776,6 @@ do
 		search.Button.MouseButton1Click:Connect(function()
 			if search.Button.Rotation == 0 then
 				self:updateDropdown(dropdown, nil, list, callback)
-			else
-				self:updateDropdown(dropdown, nil, nil, callback)
 			end
 		end)
 		
@@ -1808,6 +1808,8 @@ do
 		
 		return dropdown
 	end
+	
+	end)
 	
 	-- class functions
 	
