@@ -1782,8 +1782,6 @@ do
 		search.TextBox.Focused:Connect(function()
 			if search.Button.Rotation == 0 then
 				self:updateDropdown(dropdown, nil, list, callback)
-			else
-				self:updateDropdown(dropdown, nil, nil, callback)
 			end
 			
 			focused = true
@@ -1799,8 +1797,6 @@ do
 				list = #list ~= 0 and list 
 				
 				self:updateDropdown(dropdown, nil, list, callback)
-			else
-				self:updateDropdown(dropdown, nil, nil, callback)
 			end
 		end)
 		
@@ -2172,5 +2168,5 @@ do
 	end
 end
 
-print("Extreme_HUB")
+print("ExtremeHUB")
 return library
