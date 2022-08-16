@@ -2172,5 +2172,5 @@ do
 	end
 end
 
-print("ExtremeHUB")
+print("Extreme_HUB")
 return library
