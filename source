@@ -1773,25 +1773,15 @@ do
 		
 		search.Button.MouseButton1Click:Connect(function()
 			if search.Button.Rotation == 0 then
-			pcall(function()
-			print"1"
 				self:updateDropdown(dropdown, nil, list, callback)
-				end)
+			else
+				self:updateDropdown(dropdown, nil, nil, callback)
 			end
 		end)
 		
 		search.TextBox.Focused:Connect(function()
 			if search.Button.Rotation == 0 then
-			pcall(function()
-			print"2"
 				self:updateDropdown(dropdown, nil, list, callback)
-				end)
-			else
-			pcall(function()
-			print"3"
-				self:updateDropdown(dropdown, nil, nil, callback)
-				end)
-				
 			end
 			
 			focused = true
@@ -1803,21 +1793,15 @@ do
 		
 		search.TextBox:GetPropertyChangedSignal("Text"):Connect(function()
 			if focused then
-			pcall(function()
-			print"4"
 				local list = utility:Sort(search.TextBox.Text, list)
 				list = #list ~= 0 and list 
 				
 				self:updateDropdown(dropdown, nil, list, callback)
-				end)
 			end
 		end)
 		
 		dropdown:GetPropertyChangedSignal("Size"):Connect(function()
-		pcall(function()
-		print"5"
 			self:Resize()
-			end)
 		end)
 		
 		return dropdown
@@ -2108,19 +2092,14 @@ do
 	
 	function section:updateDropdown(dropdown, title, list, callback)
 		dropdown = self:getModule(dropdown)
+		
 		if title then
-		pcall(function()
-		print"6"
 			dropdown.Search.TextBox.Text = title
-			end)
 		end
 		
 		local entries = 0
 		
-		pcall(function()
-		print"7"
 		utility:Pop(dropdown.Search, 10)
-		end)
 		
 		for i, button in pairs(dropdown.List.Frame:GetChildren()) do
 			if button:IsA("ImageButton") then
@@ -2156,16 +2135,13 @@ do
 			
 			button.MouseButton1Click:Connect(function()
 				if callback then
-				pcall(function()
-				print"8"
 					callback(value, function(...)
 						self:updateDropdown(dropdown, ...)
-						end)
 					end)	
 				end
 
 				self:updateDropdown(dropdown, value, nil, callback)
-				end)
+			end)
 			
 			entries = entries + 1
 		end
@@ -2178,12 +2154,9 @@ do
 		if entries > 3 then
 		
 			for i, button in pairs(dropdown.List.Frame:GetChildren()) do
-			pcall(function()
-			print"9"
 				if button:IsA("ImageButton") then
 					button.Size = UDim2.new(1, -6, 0, 30)
 				end
-				end)
 			end
 			
 			frame.CanvasSize = UDim2.new(0, 0, 0, (entries * 34) - 4)
