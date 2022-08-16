@@ -2109,12 +2109,18 @@ do
 	function section:updateDropdown(dropdown, title, list, callback)
 		dropdown = self:getModule(dropdown)
 		if title then
+		pcall(function()
+		print"6"
 			dropdown.Search.TextBox.Text = title
+			end)
 		end
 		
 		local entries = 0
 		
+		pcall(function()
+		print"7"
 		utility:Pop(dropdown.Search, 10)
+		end)
 		
 		for i, button in pairs(dropdown.List.Frame:GetChildren()) do
 			if button:IsA("ImageButton") then
@@ -2150,8 +2156,11 @@ do
 			
 			button.MouseButton1Click:Connect(function()
 				if callback then
+				pcall(function()
+				print"8"
 					callback(value, function(...)
 						self:updateDropdown(dropdown, ...)
+						end)
 					end)	
 				end
 
@@ -2169,9 +2178,12 @@ do
 		if entries > 3 then
 		
 			for i, button in pairs(dropdown.List.Frame:GetChildren()) do
+			pcall(function()
+			print"9"
 				if button:IsA("ImageButton") then
 					button.Size = UDim2.new(1, -6, 0, 30)
 				end
+				end)
 			end
 			
 			frame.CanvasSize = UDim2.new(0, 0, 0, (entries * 34) - 4)
