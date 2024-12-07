@@ -14,12 +14,12 @@ local utility = {}
 -- themes
 local objects = {}
 local themes = {
-    Background = Color3.fromRGB(20, 20, 20), -- Near-black background
-    Glow = Color3.fromRGB(100, 180, 255), -- A soft bluish glow for a subtle accent
-    Accent = Color3.fromRGB(30, 30, 30), -- Slightly lighter than the background
-    LightContrast = Color3.fromRGB(50, 50, 50), -- Used for elements like buttons
-    DarkContrast = Color3.fromRGB(15, 15, 15), -- Slightly darker than the background
-    TextColor = Color3.fromRGB(220, 220, 220) -- Soft white text
+    Background = Color3.fromRGB(10, 10, 10), -- Very dark background, not pitch black
+    Glow = Color3.fromRGB(80, 120, 160), -- A subdued bluish glow for a subtle accent
+    Accent = Color3.fromRGB(20, 20, 20), -- Slightly lighter than the background for highlights
+    LightContrast = Color3.fromRGB(30, 30, 30), -- Subtle gray for buttons or elevated elements
+    DarkContrast = Color3.fromRGB(8, 8, 8), -- Slightly darker for depth
+    TextColor = Color3.fromRGB(200, 200, 200) -- Dimmed white for text, darker than before
 }
 
 do
