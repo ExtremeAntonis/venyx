@@ -1,3 +1,4 @@
+print("v1.0")
 -- init
 local player = game.Players.LocalPlayer
 local mouse = player:GetMouse()
@@ -771,7 +772,7 @@ do
 					SliceCenter = Rect.new(2, 2, 298, 298)
 				})
 			})
-		}, callback)
+		})
 		
 		table.insert(self.modules, toggle)
 		--self:Resize()
@@ -790,7 +791,7 @@ do
 			end
 		end)
 		
-		return toggle
+		return toggle, callback
 	end
 	
 	function section:addTextbox(title, default, callback)
