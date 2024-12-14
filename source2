@@ -841,13 +841,17 @@ do
 
 		function this:Update(dataOptions)
 			-- // Overwriting settings
-            for i,v in pairs(dataOptions) do
-                if (module.Options[i] and i ~= "Update") then
-                    module.Options[i] = tostring(v)
-                end
-			end
+            	for i,v in pairs(dataOptions) do
+                	if (module.Options[i] and i ~= "Update") then
+                    		module.Options[i] = tostring(v)
+                	end
+		end
 
 			return section:updateToggle(module)
+		end
+
+		if this.toggled then
+			this.callback(this.toggled)
 		end
 
 		toggle.MouseButton1Click:Connect(function()
