@@ -850,9 +850,12 @@ do
 			return section:updateToggle(module)
 		end
 
-		if this.toggled then
-			this.callback(this.toggled)
-		end
+		    -- Safe invocation of the callback
+		    if this.toggled then
+			task.defer(function()
+			    this.callback(this.toggled)
+			end)
+		    end
 
 		toggle.MouseButton1Click:Connect(function()
 			this.toggled = not this.toggled
